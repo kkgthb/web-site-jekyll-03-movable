@@ -1,6 +1,7 @@
 {% comment %}Short-circuit if data passed to this partial as "section" isn't actually blue-section-like{% endcomment %}
-{% if section and section.mention %}
+{% assign blue_section = include.section %}
+{% if blue_section and blue_section.mention %}
 <div class="blue-div">
-  {{ section.mention }}
+  {{ blue_section.mention }}
 </div>
 {% endif %}

@@ -1,16 +1,17 @@
 {% comment %}Short-circuit if data passed to this partial as "task" isn't actually task-like{% endcomment %}
-{% if task and task.task %}
-  {% unless task.done == blank %}
-    {% if task.done %}
+{% assign single_task = include.taskDetail %}
+{% if single_task and single_task.task %}
+  {% unless single_task.done == blank %}
+    {% if single_task.done %}
       {% assign checkboxSymbol = '✓' %}
     {% else %}
       {% assign checkboxSymbol = 'X' %}
     {% endif %}
-    {% capture classes %}task {{ alternatingClassName }}{% endcapture %}
+    {% capture classes %}task {{ include.alternatingClassName }}{% endcapture %}
     <div class="{{ classes }}">
-      <b>{{ checkboxSymbol}}</b> <b>{{ task.task }}</b>
-      {% unless task.how == blank %}
-        <i> {{ task.how }}</i>
+      <b>{{ checkboxSymbol}}</b> <b>{{ single_task.task }}</b>
+      {% unless single_task.how == blank %}
+        <i> {{ single_task.how }}</i>
       {% endunless %}
     </div>
   {% endunless %}
