@@ -1,0 +1,26 @@
+# Don't try to do inline comments.  Things break.
+
+# Ignore ignoreme
+.ignoreme
+/.ignoreme
+/.ignoreme/**
+
+# Ignore secrets
+/.env
+/*.env
+/*.env-*
+
+# Ignore clutter from Netlify CLI
+.netlify
+/.netlify
+/.netlify/**
+
+# Ignore "jekyll-cache"
+.jekyll-cache
+/.jekyll-cache/
+/.jekyll-cache/**
+
+# Ignore "_site", my static output folder
+_site
+/_site/
+/_site/**

@@ -1,0 +1,64 @@
+stackbitVersion: ~0.3.0
+ssgName: jekyll
+
+pagesDir: pages # Indeed, in my MVB example, this is where index.md and about.md live.
+uploadDir: assets/uploads
+
+models:
+  advancedpage:
+    type: page
+    label: Advanced Page
+    folder: 'pages/advanced' # Needed to match the pages to models, for READING content https://www.stackbit.com/docs/stackbit-yaml/page-models/#page_model_matching_properties
+    filePath: 'pages/advanced/{slug}.md' # Fully qualify because nothing to do w/ "folder".  This is for WRITING new pages.
+    urlPath: '/{slug}' # This is for WRITING new pages (and also for read).  Not necessary if URL is obvious from file, if doesn't match folder structure, etc.  Problem:  if you try to use a different token than you used in "filePath", you get "lorem-ipsum" for the non-filePath token, which, as a URL, confounds the SSG & consequently Studio, too.  So, basically, Studio doesn't support using more than 1 variable at a time in your filepath/URL, or using a different variable in your filepath/URL, since it only gives you 1 "New page path" data entry field upon new-record-creation.  (That said, they're working on making it prompt you for all required fields in the form, so don't worry about this for long.)
+    fields:
+      - type: list
+        name: sections
+        label: Sections
+        items:
+          type: model
+          models: [section_blue, section_pink, section_task_list]
+        required: false
+  section_blue:
+    type: object
+    label: Blue Section
+    fields:
+      - type: string
+        name: mention
+        label: What would you like to mention?
+        required: true
+  section_pink:
+    type: object
+    label: Pink Section
+    fields:
+      - type: string
+        name: say
+        label: What would you like to say?
+        required: true
+  section_task_list:
+    type: object
+    label: Tasks Section
+    fields:
+      - type: list
+        name: accomplishments
+        label: Tasks and Accomplishments
+        items:
+          type: model
+          models: [item_task]
+        required: false
+  item_task:
+    type: object
+    label: Pink Section
+    fields:
+      - type: string
+        name: task
+        label: The task
+        required: true
+      - type: boolean
+        name: done
+        label: Did you do it?
+        required: true
+      - type: string
+        name: how
+        label: How should/did you do it?
+        required: false

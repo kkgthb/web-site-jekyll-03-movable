@@ -1,0 +1,6 @@
+{% comment %}Short-circuit if data passed to this partial as "section" isn't actually blue-section-like{% endcomment %}
+{% if section and section.mention %}
+<div class="blue-div">
+  {{ section.mention }}
+</div>
+{% endif %}

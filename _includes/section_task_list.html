@@ -1,0 +1,9 @@
+{% comment %}Short-circuit if data passed to this partial as "section" isn't actually task-listing-like{% endcomment %}
+{% if section and section.accomplishments and section.accomplishments.size > 0 %}
+  <div class="task-list">
+    {% for task in section.accomplishments %}
+      {% capture alternatingClassName %}{% cycle 'task-odd', 'task-even' %}{% endcapture %}
+      {% include item_task.html taskDetail=task alternatingClassName=alternatingClassName %}
+    {% endfor %}
+  </div>
+{% endif %}

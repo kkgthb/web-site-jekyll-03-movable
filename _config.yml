@@ -1,0 +1,11 @@
+# _config.yml is for configuring Jekyll as the SSG.  See https://jekyllrb.com/docs/configuration/ and https://jekyllrb.com/docs/configuration/default/
+
+# Jekyll automatically ignores trying to build HTML out of folders starting w/ an underscore, unless you opt them back in over here.
+
+defaults:
+  - scope:
+      path: pages/advanced
+      type: pages
+    values:
+      permalink: /:basename
+      layout: advanced_page

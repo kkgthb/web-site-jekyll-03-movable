@@ -1,0 +1,8 @@
+[build]
+  base = "./"
+  command = "jekyll build"
+  publish = "_site"
+[dev]
+  base = "./"
+  command = "jekyll serve"
+  publish = "_site"

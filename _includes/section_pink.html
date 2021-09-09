@@ -1,0 +1,6 @@
+{% comment %}Short-circuit if data passed to this partial as "section" isn't actually pink-section-like{% endcomment %}
+{% if section and section.say %}
+<div class="pink-div">
+  {{ section.say }}
+</div>
+{% endif %}

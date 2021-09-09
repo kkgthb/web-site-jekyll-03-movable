@@ -1,0 +1,12 @@
+---
+layout: standard_header_footer
+---
+<div class="xyzzy">
+  {% for section in page.sections %}
+    {% assign sectionType = section.type %}
+    {% if section and sectionType %}
+      {% capture sectionTemplateFile %}{{ sectionType }}.html{% endcapture %}
+      {% include {{ sectionTemplateFile }} section=section %}
+    {% endif %}
+  {% endfor %}
+</div>
