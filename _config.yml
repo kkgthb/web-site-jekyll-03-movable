@@ -2,6 +2,12 @@
 
 # Jekyll automatically ignores trying to build HTML out of folders starting w/ an underscore, unless you opt them back in over here.
 
+exclude:
+  - README.md
+  - netlify.toml
+  - stackbit.yaml
+  - .ignoreme/
+
 defaults:
   - scope:
       path: pages/advanced

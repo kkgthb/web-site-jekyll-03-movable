@@ -6,5 +6,5 @@ layout: base
     <div class="hello-layout-main">
       {{ content }}
     </div>
-  <div class="hello-layout-footer">Footer placeholder</div>
+  <div class="hello-layout-footer">Footer placeholder<div><nav style="margin-top: 1rem;"><b>Sitemap:</b><ul style="margin-top: 0;">{% for page in site.pages %}<li><a href="{{ page.url }}">{{ page.url }}</a></li>{% endfor %}</ul></nav></div>
 </div>
